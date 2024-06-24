@@ -37,7 +37,7 @@ public class Slot extends BaseModel{
         this.floor = floor;
     }
 
-    public List<VehicleType> getVehicleType() {
+    public List<VehicleType> getSupportedVehicleType() {
         return vehicleType;
     }
 

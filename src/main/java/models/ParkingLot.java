@@ -14,6 +14,15 @@ public class ParkingLot extends BaseModel {
 
     private List<VehicleType> vehicleTypes;
 
+    private SlotAssignmentStrategyType slotAssignmentStrategyType;
+
+    public SlotAssignmentStrategyType getSlotAssignmentStrategyType() {
+        return slotAssignmentStrategyType;
+    }
+
+    public void setSlotAssignmentStrategyType(SlotAssignmentStrategyType slotAssignmentStrategyType) {
+        this.slotAssignmentStrategyType = slotAssignmentStrategyType;
+    }
 
     public List<Gate> getGates() {
         return gates;
