@@ -13,7 +13,7 @@ public class TokenController {
 
     private TokenService tokenService;
 
-    TokenController(TokenService tokenService){
+    public TokenController(TokenService tokenService){
         this.tokenService = tokenService;
     }
 

@@ -7,8 +7,8 @@ public class Bill extends BaseModel {
 
     private Date exitTime;
     private int amount;
-    private Operator operator;
-    private Gate gate;
+    private Gate generatedAt;
+    private Operator generatedBy;
     private Token token;
     private List<Payment> payments;
 
@@ -28,20 +28,20 @@ public class Bill extends BaseModel {
         this.amount = amount;
     }
 
-    public Operator getOperator() {
-        return operator;
+    public Operator getGeneratedBy() {
+        return generatedBy;
     }
 
-    public void setOperator(Operator operator) {
-        this.operator = operator;
+    public void setGeneratedBy(Operator generatedBy) {
+        this.generatedBy = generatedBy;
     }
 
-    public Gate getGate() {
-        return gate;
+    public Gate getGeneratedAt() {
+        return generatedAt;
     }
 
-    public void setGate(Gate gate) {
-        this.gate = gate;
+    public void setGeneratedAt(Gate generatedAt) {
+        this.generatedAt = generatedAt;
     }
 
     public Token getToken() {

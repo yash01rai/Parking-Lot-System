@@ -3,6 +3,7 @@ package services;
 import models.*;
 import respositories.GateRepository;
 import respositories.ParkingLotRepository;
+import respositories.TokenRepositary;
 import respositories.VehicleRepositary;
 import strategies.SlotAssignmentStrategyFactory;
 
@@ -14,15 +15,18 @@ public class TokenService {
     private GateRepository gateRepository;
     private VehicleRepositary vehicleRepositary;
     private ParkingLotRepository parkingLotRepository;
+    private TokenRepositary tokenRepositary;
 
-    TokenService(
+    public TokenService(
             GateRepository gateRepository,
             VehicleRepositary vehicleRepositary,
-            ParkingLotRepository parkingLotRepository
+            ParkingLotRepository parkingLotRepository,
+            TokenRepositary tokenRepositary
     ) {
         this.gateRepository = gateRepository;
         this.vehicleRepositary = vehicleRepositary;
         this.parkingLotRepository = parkingLotRepository;
+        this.tokenRepositary = tokenRepositary;
     }
 
     public Token issueToken(
@@ -78,7 +82,9 @@ public class TokenService {
         token.setAssignedSlot(slot);
         slot.setSlotStatus(SlotStatus.FILLED);
 
-        // return
-        return null;
+        Token savedToken = tokenRepositary.save(token);
+        savedToken.setTokenNumber(savedToken.getId() + "-TOKEN");
+
+        return savedToken;
     }
 }
